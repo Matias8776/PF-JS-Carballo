@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    background-image: url(../assets/img/fondo-pared-textura-hormigon-azul-grunge-vintage-vineta.jpg);
+    height: 100vh;
+    background-size: cover;
+}
+
+header {
+    color: white;
+    background-image: url(../assets/img/3529.jpg);
+    background-size: cover;
+}
+
+.navBar {
+    background-color: rgba(21, 22, 71, 0.699);
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    align-items: center;
+}
+
+.navBar ul {
+    display: flex;
+    list-style: none;
+}
+
+.principal {
+    padding: 30px;
+    font-size: 1.5rem;
+}
+
+.lista {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 30px;
+}
+
+.lista:hover {
+    background-color: rgba(21, 22, 71, 0.445);
+}
+
+.carrito {
+    padding-right: 30px;
+}
+
+.cards {
+    gap: 10px;
+    color: white;
+    display: grid;
+    grid-template-areas: "card1 card2 card3 card4" "card5 card6 card7 card8";
+    padding-top: 70px;
+    width: 80%;
+    margin: auto;
+}
+
+.card {
+    padding: 10px;
+    border: 1px solid white;
+    text-align: center;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.img {
+    width: 100%;
+}
+
+.descripcion {
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+.card1 {
+    grid-area: card1;
+}
+
+.card2 {
+    grid-area: card2;
+}
+
+.card3 {
+    grid-area: card3;
+}
+
+.card4 {
+    grid-area: card4;
+}
+
+.card5 {
+    grid-area: card5;
+}
+
+.card6 {
+    grid-area: card6;
+}
+
+.card7 {
+    grid-area: card7;
+}
+
+.card8 {
+    grid-area: card8;
+}
+
+.cajaCarrito {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    cursor: pointer;
+}
