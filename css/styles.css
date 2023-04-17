@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+/* font-family: 'Nunito', sans-serif; */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +10,7 @@
 
 main {
     background-image: url(../assets/img/fondo-pared-textura-hormigon-azul-grunge-vintage-vineta.jpg);
-    height: 100vh;
+    height: 100%;
     background-size: cover;
 }
 
@@ -14,6 +18,7 @@ header {
     color: white;
     background-image: url(../assets/img/3529.jpg);
     background-size: cover;
+    font-family: 'Nunito', sans-serif;
 }
 
 .navBar {
@@ -47,6 +52,11 @@ header {
 
 .carrito {
     padding-right: 30px;
+    height: 47px;
+}
+
+.carrito:hover {
+    transform: scale(1.2);
 }
 
 .cards {
@@ -54,9 +64,10 @@ header {
     color: white;
     display: grid;
     grid-template-areas: "card1 card2 card3 card4" "card5 card6 card7 card8";
-    padding-top: 70px;
-    width: 80%;
+    padding: 70px 0px;
+    width: 70%;
     margin: auto;
+    font-family: 'Nunito', sans-serif;
 }
 
 .card {
@@ -117,6 +128,20 @@ header {
     gap: 10px;
 }
 
+.cantidad {
+    width: 30px;
+    padding-top: 5px;
+}
+
 button {
     cursor: pointer;
+    background-color: rgba(11, 72, 92, 0.815);
+    border: 1px solid white;
+    width: 40px;
+    height: 30px;
+    color:white;
+}
+
+.alcarrito {
+    width: 120px;
 }
