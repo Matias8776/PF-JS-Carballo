@@ -32,7 +32,7 @@ const pintarProducto = (producto) => {
         <p>${producto.nombre}</p>
         <p>Precio: $${producto.precio}</p>
         <p id=cantidad${producto.id}>Cantidad: ${producto.cantidad}</p>
-        <input type="image" src="../assets/img/eliminar.png" class="eliminar" value="${producto.id}"/>
+        <input type="image" src="./assets/img/eliminar.png" class="eliminar" value="${producto.id}"/>
     `
     contenedor.appendChild(div)
     actualizarCarrito(carrito)
@@ -73,7 +73,7 @@ const pintarCarrito = (carrito) => {
             <p>${producto.nombre}</p>
             <p>Precio: $${producto.precio}</p>
             <p id=cantidad${producto.id}>Cantidad: ${producto.cantidad}</p>
-            <input type="image" src="../assets/img/eliminar.png" class="eliminar" value="${producto.id}"/>
+            <input type="image" src="./assets/img/eliminar.png" class="eliminar" value="${producto.id}"/>
         `
         contenedor.appendChild(div)
     });
