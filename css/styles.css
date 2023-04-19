@@ -8,10 +8,13 @@
     box-sizing: border-box;
 }
 
-main {
+#contenedor {
     background-image: url(../assets/img/fondo-pared-textura-hormigon-azul-grunge-vintage-vineta.jpg);
-    height: 100%;
-    background-size: cover;
+    background-size: contain;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    padding: 70px 10%;
 }
 
 header {
@@ -43,30 +46,41 @@ header {
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
-    padding: 10px 30px;
+    padding: 7px 30px;
 }
 
 .lista:hover {
     background-color: rgba(21, 22, 71, 0.445);
 }
 
-.carrito {
+#carrito {
     padding-right: 30px;
-    height: 47px;
+    height: 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgba(11, 72, 92, 0);
+    border: 0;
+    font-size: 1rem;
 }
 
-.carrito:hover {
+#carrito:hover {
     transform: scale(1.2);
 }
 
-.cards {
-    gap: 10px;
+#carrito img {
+    filter: invert(100%) sepia(0%) saturate(5622%) hue-rotate(75deg) brightness(124%) contrast(111%);
+}
+
+.contador {
     color: white;
-    display: grid;
-    grid-template-areas: "card1 card2 card3 card4" "card5 card6 card7 card8";
-    padding: 70px 0px;
-    width: 70%;
-    margin: auto;
+}
+
+.cards {
+    color: white;
+    justify-self: center;
+    align-self: center;
     font-family: 'Nunito', sans-serif;
 }
 
@@ -90,58 +104,117 @@ header {
     font-size: 1rem;
 }
 
-.card1 {
-    grid-area: card1;
-}
-
-.card2 {
-    grid-area: card2;
-}
-
-.card3 {
-    grid-area: card3;
-}
-
-.card4 {
-    grid-area: card4;
-}
-
-.card5 {
-    grid-area: card5;
-}
-
-.card6 {
-    grid-area: card6;
-}
-
-.card7 {
-    grid-area: card7;
-}
-
-.card8 {
-    grid-area: card8;
-}
-
-.cajaCarrito {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.cantidad {
-    width: 30px;
-    padding-top: 5px;
-}
-
-button {
+.alCarrito {
+    width: 120px;
     cursor: pointer;
     background-color: rgba(11, 72, 92, 0.815);
     border: 1px solid white;
-    width: 40px;
     height: 30px;
     color:white;
+    font-family: 'Nunito', sans-serif;
 }
 
-.alcarrito {
-    width: 120px;
+.alCarrito:hover {
+    transform: scale(1.2);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(21, 22, 71, 0.699);
+}
+
+.activarModal {
+    opacity: 1;
+    visibility: visible;
+    z-index: 5;
+}
+
+.modalCarrito {
+    position: relative;
+    background-color: white;
+    min-width: 500px;
+    padding: 20px;
+    margin-top: -100%;
+    transition: all .5s;
+    border-radius: 10px;
+    box-shadow: rgba(21, 22, 71, 0.445) 0px 5px 15px 0px;
+    justify-content: center;
+}
+
+.activarModal .modalCarrito {
+    margin-top: 0;
+}
+
+.modalCarrito h3 {
+    font-size: 2rem;
+    text-align: center;
+    color: black;
+    padding-bottom: 5px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.modalCarrito #cerrarModal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: white;
+    border: none;
+    background-color: white;
+}
+
+.modalCarrito #cerrarModal:hover {
+    cursor: pointer;
+}
+
+.modalCarrito #cerrarModal:focus {
+    outline: none;
+}
+
+.precioProducto {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+.modalCarrito .precioProducto {
+    padding-top: 10px;
+}
+
+.enCarrito {
+    border: 5px solid lightblue;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    margin: 5px 0;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Nunito', sans-serif;
+    align-items: center;
+}
+
+.enCarrito:hover {
+    border: 5px solid rgba(21, 22, 71, 0.699);
+}
+
+.eliminar {
+    border: none;
+    font-size: 20px;
+}
+
+.eliminar:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.eliminar:focus {
+    outline: none;
 }
