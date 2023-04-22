@@ -9,12 +9,14 @@
 }
 
 #contenedor {
+    width: 100%;
     background-image: url(../assets/img/fondo-pared-textura-hormigon-azul-grunge-vintage-vineta.jpg);
-    background-size: contain;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 10px;
-    padding: 70px 10%;
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    padding: 70px;
 }
 
 header {
@@ -79,9 +81,11 @@ header {
 
 .cards {
     color: white;
-    justify-self: center;
-    align-self: center;
     font-family: 'Nunito', sans-serif;
+    width: 20%;
+    min-width: 370px;
+    margin-right: 2%;
+    margin-bottom: 2%;
 }
 
 .card {

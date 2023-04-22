@@ -55,12 +55,15 @@ const pintarTotales = (cantidadTotal, compraTotal) => {
 
 const eliminar = (id) => {
     const index = carrito.findIndex(producto => producto.id == id)
-    console.log(index);
-    carrito.splice(index, 1)
-    pintarCarrito(carrito)
-    actualizarCarrito(carrito)
-}
+    if(carrito[index].cantidad !== 1){
+        carrito[index].cantidad--;
+    }  else {
+        carrito.splice(index, 1);
+    }
 
+    actualizarCarrito(carrito);
+    pintarCarrito(carrito);
+}
 const pintarCarrito = (carrito) => {
     const contenedor = document.getElementById('contenedorCarrito')
 
