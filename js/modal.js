@@ -2,6 +2,7 @@ const modal = document.querySelector('.modal');
 const abrirModal = document.getElementById('carrito')
 const cerrarModal = document.getElementById('cerrarModal')
 const modalCarrito = document.querySelector('.modalCarrito')
+const confirmarCompra = document.querySelector('.confirmar')
 
 abrirModal.addEventListener('click', () => {
     modal.classList.toggle('activarModal')
@@ -20,5 +21,37 @@ modalCarrito.addEventListener('click', (e) => {
 
     if (e.target.classList.contains('eliminar')) {
         eliminar(e.target.value)
+    }
+})
+
+confirmarCompra.addEventListener('click', () => {
+    if (carrito.length === 0) {
+        Toastify ({
+            text: 'Ingrese productos en el carrito primero',
+            duration: 2000,
+            gravity: 'bottom',
+            position: 'center',
+            style: {
+                background: 'rgba(11, 72, 92, 0.9)',
+                border: '1px solid lightblue',
+                'border-radius': '5px'
+            }
+        }).showToast()
+    } else {
+        carrito = []
+        pintarCarrito(carrito)
+        actualizarCarrito(carrito)
+        modal.classList.toggle('activarModal')
+        Swal.fire({
+            icon: 'success',
+            title: 'Felicidades!',
+            text: 'Su compra ha sido procesada con exíto',
+            showClass: {
+                popup: 'animate__animated animate__backInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__backOutUp'
+            }
+        })
     }
 })

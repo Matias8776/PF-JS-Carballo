@@ -5,6 +5,17 @@ const contenedorProductos = document.getElementById('contenedor')
 contenedorProductos.addEventListener('click', (e) => {
     if (e.target.classList.contains('alCarrito')) {
         validar(e.target.id)
+        Toastify({
+            text: 'Producto agregado al carrito!',
+            duration: 2000,
+            gravity: 'bottom',
+            position: 'center',
+            style: {
+                background: 'rgba(11, 72, 92, 0.9)',
+                border: '1px solid lightblue',
+                'border-radius': '5px'
+            }
+        }).showToast()
     }
 })
 
