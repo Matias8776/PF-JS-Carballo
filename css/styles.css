@@ -241,3 +241,50 @@ header {
     background-color: rgba(0, 36, 155, 0.596);
     transform: scale(1.1);
 }
+
+.contacto {
+    height: 100vh;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.field label {
+    display: block;
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+
+.field input {
+    text-align: center;
+    display: block;
+    width: 300px;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+#message {
+    display: block;
+    height: 200px;
+    width: 300px;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+input[type="submit"] {
+    display: block;
+    padding: 6px 30px;
+    font-size: 1rem;
+    background-color: rgba(102, 115, 148, 0.623);
+    color: #fff;
+    border: none;
+    margin: auto;
+}
+
+input[type="submit"]:hover {
+    background-color: rgba(0, 36, 155, 0.596);
+    transform: scale(1.1);
+}

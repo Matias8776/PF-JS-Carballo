@@ -45,7 +45,7 @@ confirmarCompra.addEventListener('click', () => {
         Swal.fire({
             icon: 'success',
             title: 'Felicidades!',
-            text: 'Su compra ha sido procesada con exíto',
+            text: 'Su compra ha sido realizada con exíto',
             showClass: {
                 popup: 'animate__animated animate__backInDown'
             },
