@@ -1,17 +1,8 @@
 const getProducts = async () => {
-    try {
-        const response = await fetch('../json/stock.json');
-        if (!response.ok) {
-        throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching products:', error);
-        return null;
-    }
-};
+    const response = await fetch ('../json/stock.json')
+    const data = await response.json()
 
-getProducts().then((data) => {
-    console.log(data);
-});
+    return data
+}
+
+getProducts()
