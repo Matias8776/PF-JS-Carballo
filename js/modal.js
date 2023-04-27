@@ -41,6 +41,7 @@ confirmarCompra.addEventListener('click', () => {
         carrito = []
         pintarCarrito(carrito)
         actualizarCarrito(carrito)
+        localStorage.clear()
         modal.classList.toggle('activarModal')
         Swal.fire({
             icon: 'success',

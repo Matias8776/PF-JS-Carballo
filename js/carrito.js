@@ -19,8 +19,9 @@ contenedorProductos.addEventListener('click', (e) => {
     }
 })
 
-const validar = (id) => {
+const validar = async (id) => {
     const repetido = carrito.some(producto => producto.id == id)
+    const productos = await getProducts()
 
     if (!repetido) {
         const producto = productos.find(producto => producto.id == id)
@@ -66,7 +67,7 @@ const pintarTotales = (cantidadTotal, compraTotal) => {
 
 const eliminar = (id) => {
     const index = carrito.findIndex(producto => producto.id == id)
-    if(carrito[index].cantidad !== 1){
+    if (carrito[index].cantidad !== 1){
         carrito[index].cantidad--;
     }  else {
         carrito.splice(index, 1);
@@ -74,6 +75,9 @@ const eliminar = (id) => {
 
     actualizarCarrito(carrito);
     pintarCarrito(carrito);
+    if (carrito.length === 0) {
+        localStorage.clear()
+    }
 }
 const pintarCarrito = (carrito) => {
     const contenedor = document.getElementById('contenedorCarrito')

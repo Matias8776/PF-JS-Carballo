@@ -1,7 +1,7 @@
-const pintarProductos = (data) => {
+const pintarProductos = async () => {
     const contenedor = document.getElementById("contenedor");
-
-    data.forEach(producto => {
+    const productos = await getProducts()
+    productos.forEach(producto => {
         const div = document.createElement('div');
         div.classList.add('cards');
         div.innerHTML += `<div class="card">
