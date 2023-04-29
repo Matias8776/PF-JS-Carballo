@@ -1,8 +1,8 @@
 const btn = document.getElementById('button');
 
 document.getElementById('form')
-    .addEventListener('submit', function(event) {
-        event.preventDefault();
+    .addEventListener('submit', function(e) {
+        e.preventDefault();
 
         btn.value = 'Enviando...';
 

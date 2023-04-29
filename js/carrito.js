@@ -2,10 +2,8 @@ let carrito = []
 
 const contenedorProductos = document.getElementById('contenedor')
 
-contenedorProductos.addEventListener('click', (e) => {
-    if (e.target.classList.contains('alCarrito')) {
-        validar(e.target.id)
-        Toastify({
+contenedorProductos.addEventListener('click', (e) =>
+e.target.classList.contains('alCarrito') ? (validar(e.target.id), Toastify({
             text: 'Producto agregado al carrito!',
             duration: 2000,
             gravity: 'bottom',
@@ -15,26 +13,24 @@ contenedorProductos.addEventListener('click', (e) => {
                 border: '1px solid lightblue',
                 'border-radius': '5px'
             }
-        }).showToast()
-    }
-})
+    }).showToast()) : null
+);
 
 const validar = async (id) => {
     const repetido = carrito.some(producto => producto.id == id)
     const productos = await getProducts()
 
-    if (!repetido) {
-        const producto = productos.find(producto => producto.id == id)
-        carrito.push(producto)
-        pintarProducto(producto)
-    } else {
-        const existe = carrito.find(producto => producto.id == id)
-        const cantidad = document.getElementById(`cantidad${existe.id}`)
-        existe.cantidad++
-        cantidad.innerText = `Cantidad: ${existe.cantidad}`
+    repetido ? (
+        existe = carrito.find(producto => producto.id == id),
+        cantidad = document.getElementById(`cantidad${existe.id}`),
+        existe.cantidad++,
+        cantidad.innerText = `Cantidad: ${existe.cantidad}`,
         actualizarCarrito(carrito)
-    }
-}
+        ) : (
+        producto = productos.find(producto => producto.id == id),
+        carrito.push(producto),
+        pintarProducto(producto)
+    )}
 
 const pintarProducto = (producto) => {
     const contenedor = document.getElementById('contenedorCarrito')
@@ -67,18 +63,13 @@ const pintarTotales = (cantidadTotal, compraTotal) => {
 
 const eliminar = (id) => {
     const index = carrito.findIndex(producto => producto.id == id)
-    if (carrito[index].cantidad !== 1){
-        carrito[index].cantidad--;
-    }  else {
-        carrito.splice(index, 1);
-    }
+carrito[index].cantidad !== 1 ? carrito[index].cantidad-- : carrito.splice(index, 1);
 
     actualizarCarrito(carrito);
     pintarCarrito(carrito);
-    if (carrito.length === 0) {
-        localStorage.clear()
-    }
+    carrito.length === 0 ? localStorage.clear() : null;
 }
+
 const pintarCarrito = (carrito) => {
     const contenedor = document.getElementById('contenedorCarrito')
 
@@ -106,9 +97,5 @@ const obtenerCarrito = () => {
     return carrito
 }
 
-if (localStorage.getItem('carrito')) {
-    carrito = obtenerCarrito()
-    pintarCarrito(carrito)
-    actualizarCarrito(carrito)
-}
+localStorage.getItem('carrito') ? (carrito = obtenerCarrito(), pintarCarrito(carrito), actualizarCarrito(carrito)) : null;
 

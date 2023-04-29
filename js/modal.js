@@ -19,13 +19,11 @@ modal.addEventListener('click', () => {
 modalCarrito.addEventListener('click', (e) => {
     e.stopPropagation()
 
-    if (e.target.classList.contains('eliminar')) {
-        eliminar(e.target.value)
-    }
-})
+    e.target.classList.contains('eliminar') ? eliminar(e.target.value) : null
+    })
 
 confirmarCompra.addEventListener('click', () => {
-    if (carrito.length === 0) {
+    carrito.length === 0 ?
         Toastify ({
             text: 'Ingrese productos en el carrito primero',
             duration: 2000,
@@ -36,13 +34,12 @@ confirmarCompra.addEventListener('click', () => {
                 border: '1px solid lightblue',
                 'border-radius': '5px'
             }
-        }).showToast()
-    } else {
-        carrito = []
-        pintarCarrito(carrito)
-        actualizarCarrito(carrito)
-        localStorage.clear()
-        modal.classList.toggle('activarModal')
+        }).showToast() :
+        (carrito = [],
+        pintarCarrito(carrito),
+        actualizarCarrito(carrito),
+        localStorage.clear(),
+        modal.classList.toggle('activarModal'),
         Swal.fire({
             icon: 'success',
             title: 'Felicidades!',
@@ -53,6 +50,5 @@ confirmarCompra.addEventListener('click', () => {
             hideClass: {
                 popup: 'animate__animated animate__backOutUp'
             }
-        })
-    }
+        }))
 })
