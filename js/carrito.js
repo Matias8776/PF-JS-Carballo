@@ -3,17 +3,20 @@ let carrito = []
 const contenedorProductos = document.getElementById('contenedor')
 
 contenedorProductos.addEventListener('click', (e) =>
-e.target.classList.contains('alCarrito') ? (validar(e.target.id), Toastify({
-            text: 'Producto agregado al carrito!',
-            duration: 2000,
-            gravity: 'bottom',
-            position: 'center',
-            style: {
-                background: 'rgba(11, 72, 92, 0.9)',
-                border: '1px solid lightblue',
-                'border-radius': '5px'
-            }
-    }).showToast()) : null
+    e.target.classList.contains('alCarrito') && e.target.id ? (
+        validar(e.target.id),
+        Toastify({
+                text: 'Producto agregado al carrito!',
+                duration: 2000,
+                gravity: 'bottom',
+                position: 'center',
+                style: {
+                    background: 'rgba(11, 72, 92, 0.9)',
+                    border: '1px solid lightblue',
+                    'border-radius': '5px'
+                }
+        }).showToast()
+    ) : null
 );
 
 const validar = async (id) => {
@@ -51,6 +54,7 @@ const actualizarCarrito = (carrito) => {
     const compraTotal = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0)
     pintarTotales(cantidadTotal, compraTotal)
     guardarCarrito(carrito)
+    carrito == null || carrito.length === 0 ? localStorage.clear() : null;
 }
 
 const pintarTotales = (cantidadTotal, compraTotal) => {
@@ -67,7 +71,6 @@ carrito[index].cantidad !== 1 ? carrito[index].cantidad-- : carrito.splice(index
 
     actualizarCarrito(carrito);
     pintarCarrito(carrito);
-    carrito.length === 0 ? localStorage.clear() : null;
 }
 
 const pintarCarrito = (carrito) => {
